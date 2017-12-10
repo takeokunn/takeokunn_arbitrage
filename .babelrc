@@ -1,0 +1,24 @@
+{
+    "presets": [
+        ["@babel/preset-env", {
+            "targets": {
+                "node": "current"
+            },
+            "modules": false,
+            "loose": true
+        }]
+    ],
+    "plugins": [
+        [
+            "module-resolver", {
+                "root": ["./src"],
+                "alias": {
+                    "utils": "./src/utils"
+                }
+            },
+            "transform-function-bind",
+            "transform-export-extensions",
+            "external-helpers"
+        ]
+    ]
+}
