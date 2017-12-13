@@ -1,9 +1,11 @@
-import sagas from 'sagas/';
-import configureStore from 'store/';
+import rootSaga from 'sagas/';
+import store from 'store/';
 
+import { ajax, mongo, logger } from 'services/';
 import { notification } from 'actions/';
 
-const store = configureStore();
-store.runSaga(sagas);
+logger.error("エラーだよー");
 
-store.dispatch(notification.postTweet.request('good'))
+// store.runSaga(rootSaga);
+//
+// store.dispatch(notification.postTweet.request('fdasfas'));

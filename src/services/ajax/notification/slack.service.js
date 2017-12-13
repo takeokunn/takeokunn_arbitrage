@@ -1,10 +1,10 @@
 import slack from 'slack';
 import { SLACK_CONFIG } from 'config';
 
-export const postMessage = text => {
+export const postMessage = payload => {
     return slack.chat.postMessage({
         token: SLACK_CONFIG.ACCESS_TOKEN,
         channel: SLACK_CONFIG.CHANNEL_NAME,
-        text: text
+        text: payload.text
     });
 }

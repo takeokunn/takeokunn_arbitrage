@@ -13,3 +13,5 @@ export const postSlack = {
     success: () => action(NOTIFICATION.POST_SLACK_SUCCESS),
     failure: () => action(NOTIFICATION.POST_SLACK_FAILURE)
 };
+
+export const storeNotificationLog = (ok, type, text) => action(NOTIFICATION.STORE_NOTIFICATION_LOG, { ok, type, text });

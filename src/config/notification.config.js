@@ -1,3 +1,8 @@
+export const SLACK_CONFIG = {
+    ACCESS_TOKEN: 'xoxp-264679116470-263718620739-286948042487-90992f27688aad61b67ab5eaf0476c35',
+    CHANNEL_NAME: '#trading_log'
+};
+
 export const TWITTER_CONFIG = {
     API_KEY: '6RrTqtNtgxWUODVrs9sDjp2R7',
     API_KEY_SECRET: 'rjUnut2Sd6Hga7CdzKfFzVhOl0mPtoeKoapERBKr3J0dHR0CwC',
