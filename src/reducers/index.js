@@ -1,3 +1,9 @@
-import { get, post } from 'ajax/base';
+import { combineReducers } from 'redux';
 
-export const yahoo = () => get('https://www.yahoo.com/');
+import notification from './notification.reducer';
+
+const reducers = combineReducers({
+    notification
+});
+
+export default reducers;

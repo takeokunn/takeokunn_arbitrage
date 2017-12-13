@@ -1,11 +1,11 @@
 {
     "presets": [
+        "stage-3",
         ["@babel/preset-env", {
             "targets": {
                 "node": "current"
             },
-            "modules": false,
-            "loose": true
+            "modules": false
         }]
     ],
     "plugins": [
@@ -19,6 +19,7 @@
                     "reducers": "./src/reducers",
                     "sagas": "./src/sagas",
                     "services": "./src/services",
+                    "store": "./src/store",
                 }
             },
             "transform-function-bind",

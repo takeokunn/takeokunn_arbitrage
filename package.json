@@ -11,9 +11,12 @@
     "lint": "eslint src/**/*.js"
   },
   "dependencies": {
-    "@slack/client": "^3.14.2",
     "axios": "^0.17.1",
     "mongoose": "^4.13.7",
+    "pubnub": "^4.19.0",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
+    "slack": "^9.1.1",
     "twitter": "^1.7.1"
   },
   "devDependencies": {
@@ -24,6 +27,7 @@
     "babel-plugin-module-resolver": "^3.0.0",
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-plugin-transform-function-bind": "^6.22.0",
+    "babel-preset-stage-3": "^6.24.1",
     "eslint": "^4.13.0",
     "rollup": "^0.52.1",
     "rollup-plugin-babel": "^3.0.2",

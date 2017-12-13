@@ -1,3 +1,5 @@
-import { get, post } from 'ajax/base';
+import * as ajax from './ajax';
 
-export const yahoo = () => get('https://www.yahoo.com/');
+export {
+    ajax
+};
