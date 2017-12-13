@@ -1,0 +1,6 @@
+export const TWITTER_CONFIG = {
+    API_KEY: '6RrTqtNtgxWUODVrs9sDjp2R7',
+    API_KEY_SECRET: 'rjUnut2Sd6Hga7CdzKfFzVhOl0mPtoeKoapERBKr3J0dHR0CwC',
+    ACCESS_TOKEN: '406263947-9zs73aUPNXG9JlDbrjgmwiZKTzTygzi0JxI8UZ6t',
+    ACCESS_TOKEN_SECRET: 'xyATa1R8x60mlowmusqkGz4jwMsAIZFPLXv9bupkFMZj6'
+};

@@ -7,14 +7,17 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "dev": "rollup -c && node dist/bundle.js",
     "lint": "eslint src/**/*.js"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.34",
-    "axios": "^0.17.1"
+    "@slack/client": "^3.14.2",
+    "axios": "^0.17.1",
+    "mongoose": "^4.13.7",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.34",
     "@babel/preset-env": "^7.0.0-beta.34",
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",

@@ -6,8 +6,12 @@ export default {
     input: 'src/index.js',
     output: {
         file: 'dist/bundle.js',
-        format: 'es',
+        format: 'umd',
         sourcemap: true
+    },
+    watch: {
+        include: 'src/**/*.js',
+        exclude: 'node_modules/**'
     },
     plugins: [
         json(),

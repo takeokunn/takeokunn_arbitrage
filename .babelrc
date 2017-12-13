@@ -13,7 +13,12 @@
             "module-resolver", {
                 "root": ["./src"],
                 "alias": {
-                    "utils": "./src/utils"
+                    "actions": "./src/actions",
+                    "config": "./src/config",
+                    "constants": "./src/constants",
+                    "reducers": "./src/reducers",
+                    "sagas": "./src/sagas",
+                    "services": "./src/services",
                 }
             },
             "transform-function-bind",
