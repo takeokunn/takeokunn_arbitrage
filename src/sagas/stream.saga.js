@@ -3,8 +3,17 @@ import PubNub from 'pubnub';
 import { eventChannel } from 'redux-saga'
 import { put, fork, take, call, all } from 'redux-saga/effects';
 
-import { BITFLYER_CONFIG, COINCHECK_CONFIG, ZAIF_CONFIG } from 'config/';
-import { COINCHECK, ZAIF }  from 'constants/action_type.constant';
+import { BITBANK, BITFLYER, COINCHECK, ZAIF }  from 'constants/action_type.constant';
+import { BITBANK_CONFIG, BITFLYER_CONFIG, COINCHECK_CONFIG, ZAIF_CONFIG } from 'config/';
+
+const bitbankInitChannel = () => {
+    return eventChannel(emitter => {
+        const pubnub = new PubNub({ subscribeKey: BITBANK_CONFIG.SUBSCRIBE_KEY });
+        pubnub.addListener({ message: data => emitter({ type: BITBANK.SET_BTC_JPY_ORDERBOOK, data: data.message }) });
+        pubnub.subscribe({ channels: [BITBANK_CONFIG.BTC_JPY_CHANNEL] });
+        return () => console.log("socket off");
+    });
+};
 
 const bitflyerInitChannel = () => {
     return eventChannel(emitter => {
@@ -32,6 +41,14 @@ const zaifInitChannel = () => {
     });
 };
 
+function* handleBitbankStream() {
+    const channel = yield call(bitbankInitChannel);
+    while (true) {
+        const action = yield take(channel);
+        yield put(action);
+    }
+}
+
 function* handleBitflyerStream() {
     const channel = yield call(bitflyerInitChannel);
     while (true) {
@@ -56,12 +73,13 @@ function* handleZaifStream() {
     }
 }
 
-function* websocketSaga() {
+function* streamSaga() {
     yield all([
+        fork(handleBitbankStream),
         fork(handleBitflyerStream),
         fork(handleCoincheckStream),
         fork(handleZaifStream),
     ]);
 }
 
-export default websocketSaga;
+export default streamSaga;

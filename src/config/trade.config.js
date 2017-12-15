@@ -1,3 +1,8 @@
+export const BITBANK_CONFIG = {
+    SUBSCRIBE_KEY: 'sub-c-e12e9174-dd60-11e6-806b-02ee2ddab7fe',
+    BTC_JPY_CHANNEL: 'ticker_btc_jpy',
+};
+
 export const BITFLYER_CONFIG = {
     API_URL: 'https://api.bitflyer.jp/v1',
     SUBSCRIBE_KEY: 'sub-c-52a9ab50-291b-11e5-baaa-0619f8945a4f',

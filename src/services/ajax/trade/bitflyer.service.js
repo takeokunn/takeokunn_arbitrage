@@ -1,4 +1,4 @@
-import axois from 'axois';
+import axios from 'axios';
 import crypto from 'crypto';
 
 import { BITFLYER_CONFIG } from 'config/';

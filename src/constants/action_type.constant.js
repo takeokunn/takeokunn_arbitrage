@@ -13,6 +13,11 @@ export const NOTIFICATION = {
     STORE_NOTIFICATION_LOG: 'NOTIFICATION_STORE_NOTIFICATION_LOG'
 };
 
+export const BITBANK = {
+    // set btc_jpy orderbook
+    SET_BTC_JPY_ORDERBOOK: 'BITBANK_SET_BTC_JPY_ORDERBOOK',
+};
+
 export const BITFLYER = {
     // set btc_jpy orderbook
     SET_BTC_JPY_ORDERBOOK: 'BITFLYER_SET_BTC_JPY_ORDERBOOK',
@@ -50,7 +55,7 @@ export const BITFLYER = {
 
 export const COINCHECK = {
     // set btc_jpy orderbook
-    SET_BTC_JPY_ORDERBOOK: 'COINCHECK_SET_BTC_JPY_ORDERBOOK'
+    SET_BTC_JPY_ORDERBOOK: 'COINCHECK_SET_BTC_JPY_ORDERBOOK',
 
     // get accounts balance
     GET_ACCOUNTS_BALANCE_REQUEST: 'COINCHECK_GET_ACCOUNTS_BALANCE_REQUEST',

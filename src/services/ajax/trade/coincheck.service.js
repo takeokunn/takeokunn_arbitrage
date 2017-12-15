@@ -1,4 +1,4 @@
-import axois from 'axois';
+import axios from 'axios';
 import crypto from 'crypto';
 
 import { COINCHECK_CONFIG } from 'config/';
@@ -62,7 +62,7 @@ const post = (path, payload) => {
         .catch(err => err);
 };
 
-const delete = (path, payload) => {
+const delete_ = (path, payload) => {
     return axios.delete(path, payload, deleteHeader(path, payload))
         .then(res => res.data)
         .catch(err => err);
@@ -75,5 +75,5 @@ export const getOpenOrders = () => get('/api/exchange/orders/opens');
 export const getLeveragePositions = () => get('/api/exchange/leverage/positions');
 export const getOrderBooks = () => get('/api/order_books');
 export const postNewOrder = () => post('/api/exchange/orders')
-export const deleteCancelOrder = order_id => delete('/api/exchange/orders/${order_id}')
+export const deleteCancelOrder = order_id => delete_('/api/exchange/orders/${order_id}')
 export const getTransactions = () => get('/api/exchange/orders/transactions_pagination');
