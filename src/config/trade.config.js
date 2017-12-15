@@ -1,5 +1,5 @@
 export const BITFLYER_CONFIG = {
-    API_URL: 'https://api.bitflyer.jp',
+    API_URL: 'https://api.bitflyer.jp/v1',
     SUBSCRIBE_KEY: 'sub-c-52a9ab50-291b-11e5-baaa-0619f8945a4f',
     BTC_JPY_CHANNEL: 'lightning_ticker_BTC_JPY',
     ACCESS_KEY: '',

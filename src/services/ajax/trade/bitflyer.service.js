@@ -3,14 +3,14 @@ import crypto from 'crypto';
 
 import { BITFLYER_CONFIG } from 'config/';
 
-axios.defaults.baseURL = COINCHECK_CONFIG.API_URL;
+axios.defaults.baseURL = BITFLYER_CONFIG.API_URL;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const getNonce = () => new Date().getTime();
 
 const generateSignature = (nonce, path, payload) => {
     const message = nonce + BITFLYER_CONFIG.API_URL + path + ((Object.keys(payload).length > 0) ? JSON.stringify(payload) : '');
-    return crypto.createHmac('sha256', COINCHECK_CONFIG.SECRET_KEY).update(message).digest('hex');
+    return crypto.createHmac('sha256', BITFLYER_CONFIG.SECRET_KEY).update(message).digest('hex');
 };
 
 const getHeader = (path, payload) => {
@@ -51,3 +51,9 @@ const post = (path, payload) => {
 };
 
 // exports
+export const postSendChildOrder = () => post('/me/sendchildorder');
+export const postCancelChildOrder = () => post('/me/cancelchildorder');
+export const getChildOrders = () => get('/me/getchildorders');
+export const getExecutions = () => get('/me/getexecutions');
+export const getBalance = () => get('/me/getbalance');
+export const getBoard = () => get('/board');
