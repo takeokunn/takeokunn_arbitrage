@@ -1,5 +1,2 @@
-import * as notification from './notification.action';
-
-export {
-    notification
-}
+export * as coincheck from './coincheck.action';
+export * as notification from './notification.action';

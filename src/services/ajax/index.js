@@ -1,8 +1,7 @@
 // notification
-import * as slack from './notification/slack.service';
-import * as twitter from './notification/twitter.service';
+export * as slack from './notification/slack.service';
+export * as twitter from './notification/twitter.service';
 
-export {
-    twitter,
-    slack,
-}
+// trade
+export * as bitflyer from './notification/bitflyer.service';
+export * as coincheck from './notification/coincheck.service';

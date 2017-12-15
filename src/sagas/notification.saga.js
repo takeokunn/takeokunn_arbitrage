@@ -8,6 +8,7 @@ function* handlePostTweet() {
     while(true) {
         const action = yield take(NOTIFICATION.POST_TWEET_REQUEST);
         const tweet = yield call(ajax.twitter.postTweet, action.payload);
+        console.log(tweet);
         yield put(notification.postTweet.success());
         yield put(notification.storeNotificationLog(true, 'twitter', 'Success post twitter message.'));
     }
