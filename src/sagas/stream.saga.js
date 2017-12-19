@@ -1,6 +1,6 @@
 import WebSocket from 'ws';
 import PubNub from 'pubnub';
-import { eventChannel } from 'redux-saga'
+import { eventChannel, END } from 'redux-saga'
 import { put, fork, take, call, all } from 'redux-saga/effects';
 
 import { BITBANK, BITFLYER, COINCHECK, ZAIF }  from 'constants/action_type.constant';
@@ -8,7 +8,7 @@ import { BITBANK_CONFIG, BITFLYER_CONFIG, COINCHECK_CONFIG, ZAIF_CONFIG } from '
 
 const bitbankInitChannel = () => {
     return eventChannel(emitter => {
-        const pubnub = new PubNub({ subscribeKey: BITBANK_CONFIG.SUBSCRIBE_KEY });
+        const pubnub = new PubNub({ subscribeKey: BITBANK_CONFIG.SUBSCRIBE_KEY, restore : true });
         pubnub.addListener({ message: data => emitter({ type: BITBANK.SET_BTC_JPY_ORDERBOOK, data: data.message }) });
         pubnub.subscribe({ channels: [BITBANK_CONFIG.BTC_JPY_CHANNEL] });
         return () => console.log("socket off");
@@ -17,7 +17,7 @@ const bitbankInitChannel = () => {
 
 const bitflyerInitChannel = () => {
     return eventChannel(emitter => {
-        const pubnub = new PubNub({ subscribeKey: BITFLYER_CONFIG.SUBSCRIBE_KEY });
+        const pubnub = new PubNub({ subscribeKey: BITFLYER_CONFIG.SUBSCRIBE_KEY, restore : true });
         pubnub.addListener({ message: data => emitter({ type: BITFLYER.SET_BTC_JPY_ORDERBOOK, data: data.message }) });
         pubnub.subscribe({ channels: [BITFLYER_CONFIG.BTC_JPY_CHANNEL] });
         return () => console.log("socket off");
@@ -50,10 +50,12 @@ function* handleBitbankStream() {
 }
 
 function* handleBitflyerStream() {
-    const channel = yield call(bitflyerInitChannel);
     while (true) {
-        const action = yield take(channel);
-        yield put(action);
+        const channel = yield call(bitflyerInitChannel);
+        while (true) {
+            const action = yield take(channel);
+            yield put(action);
+        }
     }
 }
 

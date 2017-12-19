@@ -1,12 +1,15 @@
-import Twitter from 'twitter';
-
+import Twitter from 'twit';
 import { TWITTER_CONFIG } from 'config';
 
-const client = new Twitter({
-    consumer_key: TWITTER_CONFIG.API_KEY,
-    consumer_secret: TWITTER_CONFIG.API_KEY_SECRET,
-    access_token_key: TWITTER_CONFIG.ACCESS_TOKEN,
+const twitter = new Twitter({
+    consumer_key: TWITTER_CONFIG.CONSUMER_KEY,
+    consumer_secret: TWITTER_CONFIG.CONSUMER_SECRET,
+    access_token: TWITTER_CONFIG.ACCESS_TOKEN,
     access_token_secret: TWITTER_CONFIG.ACCESS_TOKEN_SECRET
-});
+})
 
-export const postTweet = payload => client.post('statuses/update', { status: payload.text });
+export const post = payload => {
+    return twitter.post('statuses/update', { status: payload.text })
+        .then(res => res)
+        .catch(err => err);
+}

@@ -18,8 +18,6 @@ export const COINCHECK_CONFIG = {
     SECRET_KEY: '',
 };
 
-export const QUOINE_CONFIG = {};
-
 export const ZAIF_CONFIG = {
     WEBSOCKET_BTC_JPY_URL: 'wss://ws.zaif.jp:8888/stream?currency_pair=btc_jpy'
 };

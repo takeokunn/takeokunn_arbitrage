@@ -1,6 +1,6 @@
 import rootSaga from 'sagas/';
 import store from 'store/';
 
-store.runSaga(rootSaga);
+import { notification } from 'actions/';
 
-// store.dispatch(notification.postTweet.request('fdasfas'));
+store.runSaga(rootSaga);

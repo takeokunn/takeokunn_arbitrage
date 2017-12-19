@@ -4,8 +4,8 @@ export const SLACK_CONFIG = {
 };
 
 export const TWITTER_CONFIG = {
-    API_KEY: '6RrTqtNtgxWUODVrs9sDjp2R7',
-    API_KEY_SECRET: 'rjUnut2Sd6Hga7CdzKfFzVhOl0mPtoeKoapERBKr3J0dHR0CwC',
+    CONSUMER_KEY: 'licmKaY73Q38xfTnib8LnFMbX',
+    CONSUMER_SECRET: 'o3Eg9LWy6cN9ygt4sTLILa6JbQtMH7HEwNw8o6G7V2kx4a0vrI',
     ACCESS_TOKEN: '406263947-9zs73aUPNXG9JlDbrjgmwiZKTzTygzi0JxI8UZ6t',
     ACCESS_TOKEN_SECRET: 'xyATa1R8x60mlowmusqkGz4jwMsAIZFPLXv9bupkFMZj6'
 };

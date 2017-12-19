@@ -7,10 +7,14 @@ import { NOTIFICATION } from 'constants/action_type.constant';
 function* handlePostTweet() {
     while(true) {
         const action = yield take(NOTIFICATION.POST_TWEET_REQUEST);
-        const tweet = yield call(ajax.twitter.postTweet, action.payload);
-        console.log(tweet);
-        yield put(notification.postTweet.success());
-        yield put(notification.storeNotificationLog(true, 'twitter', 'Success post twitter message.'));
+        const tweet = yield call(ajax.twitter.post, action.payload);
+        if (!tweet.data.hasOwnProperty('errors')) {
+            yield put(notification.postTweet.success());
+            yield put(notification.storeNotificationLog(true, 'twitter', 'Success post twitter message.'));
+        } else {
+            yield put(notification.postTweet.failure());
+            yield put(notification.storeNotificationLog(false, 'twitter', 'Failure post twitter message.'));
+        }
     }
 }
 
