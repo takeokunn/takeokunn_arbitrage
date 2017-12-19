@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import { MONGO_CONFIG } from 'config';
+import { MONGO_CONFIG } from 'background_config/';
 
 const connection = mongoose.createConnection(MONGO_CONFIG.URL + '/' + MONGO_CONFIG.DB_NAME);
 

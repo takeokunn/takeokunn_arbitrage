@@ -1,5 +1,6 @@
 import slack from 'slack';
-import { SLACK_CONFIG } from 'config';
+
+import { SLACK_CONFIG } from 'background_config/';
 
 export const postMessage = payload => {
     return slack.chat.postMessage({

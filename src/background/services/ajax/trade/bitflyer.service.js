@@ -1,7 +1,7 @@
 import axios from 'axios';
 import crypto from 'crypto';
 
-import { BITFLYER_CONFIG } from 'config/';
+import { BITFLYER_CONFIG } from 'background_config/';
 
 axios.defaults.baseURL = BITFLYER_CONFIG.API_URL;
 axios.defaults.headers.post['Content-Type'] = 'application/json';

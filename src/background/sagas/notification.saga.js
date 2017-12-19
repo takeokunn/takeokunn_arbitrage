@@ -1,11 +1,11 @@
-import { put, fork, take, call, all, select } from 'redux-saga/effects';
+import { put, fork, take, call, all } from 'redux-saga/effects';
 
-import { notification } from 'actions/';
-import { ajax, mongo } from 'services/';
-import { NOTIFICATION } from 'constants/action_type.constant';
+import { notification } from 'background_actions/';
+import { ajax, mongo } from 'background_services/';
+import { NOTIFICATION } from 'background_constants/action_type.constant';
 
 function* handlePostTweet() {
-    while(true) {
+    for (;;) {
         const action = yield take(NOTIFICATION.POST_TWEET_REQUEST);
         const tweet = yield call(ajax.twitter.post, action.payload);
         if (!tweet.data.hasOwnProperty('errors')) {
@@ -19,7 +19,7 @@ function* handlePostTweet() {
 }
 
 function* handlePostSlack() {
-    while(true) {
+    for (;;) {
         const action = yield take(NOTIFICATION.POST_SLACK_REQUEST);
         const message = yield call(ajax.slack.postMessage, action.payload);
         if (message.ok) {
@@ -33,9 +33,9 @@ function* handlePostSlack() {
 }
 
 function* handleStoreNotificationLog() {
-    while (true) {
+    for (;;) {
         const action = yield take(NOTIFICATION.STORE_NOTIFICATION_LOG);
-        const log = yield call(mongo.storeNotificationLog, action.payload);
+        yield call(mongo.storeNotificationLog, action.payload);
     }
 }
 

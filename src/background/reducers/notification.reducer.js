@@ -1,4 +1,4 @@
-import { NOTIFICATION }  from 'constants/action_type.constant';
+import { NOTIFICATION }  from 'background_constants/action_type.constant';
 
 const initialNotificationState = {
     isTwitterFetching: false,
@@ -29,21 +29,21 @@ const postSlack = (state, action) => {
 
 const notification = (state = initialNotificationState, action) => {
     switch (action.type) {
-        // post twitter
-        case NOTIFICATION.POST_TWEET_REQUEST:
-        case NOTIFICATION.POST_TWEET_SUCCESS:
-        case NOTIFICATION.POST_TWEET_FAILURE:
-            return postTwitter(state, action);
-        // post slack
-        case NOTIFICATION.POST_SLACK_REQUEST:
-        case NOTIFICATION.POST_SLACK_SUCCESS:
-        case NOTIFICATION.POST_SLACK_FAILURE:
-            return postSlack(state, action);
-        // store notification_log
-        case NOTIFICATION.STORE_NOTIFICATION_LOG:
-            return { ...state };
-        default:
-            return { ...state };
+    // post twitter
+    case NOTIFICATION.POST_TWEET_REQUEST:
+    case NOTIFICATION.POST_TWEET_SUCCESS:
+    case NOTIFICATION.POST_TWEET_FAILURE:
+        return postTwitter(state, action);
+    // post slack
+    case NOTIFICATION.POST_SLACK_REQUEST:
+    case NOTIFICATION.POST_SLACK_SUCCESS:
+    case NOTIFICATION.POST_SLACK_FAILURE:
+        return postSlack(state, action);
+    // store notification_log
+    case NOTIFICATION.STORE_NOTIFICATION_LOG:
+        return { ...state };
+    default:
+        return { ...state };
     }
 };
 

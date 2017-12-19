@@ -1,4 +1,4 @@
-import { NOTIFICATION } from 'constants/action_type.constant';
+import { NOTIFICATION } from 'background_constants/action_type.constant';
 
 const action = (type, payload = {}) => ({ type, payload });
 

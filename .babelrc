@@ -14,13 +14,13 @@
             {
                 "root": ["./src"],
                 "alias": {
-                    "actions": "./src/actions",
-                    "config": "./src/config",
-                    "constants": "./src/constants",
-                    "reducers": "./src/reducers",
-                    "sagas": "./src/sagas",
-                    "services": "./src/services",
-                    "store": "./src/store",
+                    "background_actions": "./src/background/actions",
+                    "background_config": "./src/background/config",
+                    "background_constants": "./src/background/constants",
+                    "background_reducers": "./src/background/reducers",
+                    "background_sagas": "./src/background/sagas",
+                    "background_services": "./src/background/services",
+                    "background_store": "./src/background/store",
                 }
             }
         ],

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import crypto from 'crypto';
 
-import { COINCHECK_CONFIG } from 'config/';
+import { COINCHECK_CONFIG } from 'background_config/';
 
 axios.defaults.baseURL = COINCHECK_CONFIG.API_URL;
 axios.defaults.headers.post['Content-Type'] = 'application/json';

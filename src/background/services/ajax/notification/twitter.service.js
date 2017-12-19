@@ -1,5 +1,6 @@
 import Twitter from 'twit';
-import { TWITTER_CONFIG } from 'config';
+
+import { TWITTER_CONFIG } from 'background_config';
 
 const twitter = new Twitter({
     consumer_key: TWITTER_CONFIG.CONSUMER_KEY,

@@ -1,4 +1,4 @@
-import { COINCHECK } from 'constants/action_type.constant';
+import { COINCHECK } from 'background_constants/action_type.constant';
 
 const action = (type, payload = {}) => ({ type, payload });
 
